@@ -46,6 +46,14 @@ public class BaseballGame implements Game {
         this.dataSource = dataSource;
     }
 
+    public void init() {
+        System.out.println("Init time");
+    }
+
+    public void destroy() {
+        System.out.println("Destroy time");
+    }
+
     @Override
     public String toString() {
         return String.format("Game between %s at %s", awayTeam.getName(), homeTeam.getName());

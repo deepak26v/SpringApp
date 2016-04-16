@@ -11,17 +11,21 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class RunDemo {
     public static void main(String[] args) {
-        ApplicationContext appContext = new AnnotationConfigApplicationContext((AppConfig.class));
+        AnnotationConfigApplicationContext appContext = new AnnotationConfigApplicationContext((AppConfig.class));
 
-        Game game1 = appContext.getBean("game", Game.class);
-        System.out.println(game1);
+        //Team royalsTeam = appContext.getBean("royals", Team.class);
 
-        Game game2 = appContext.getBean("game", Game.class);
-        Team royalsTeam = appContext.getBean("royals", Team.class);
-        game2.setAwayTeam(royalsTeam);
-        System.out.println(game2);
+        Game game = appContext.getBean("game", Game.class);
+        Team royals = appContext.getBean("royals", Team.class);
+        Team redSox = appContext.getBean("redSox", Team.class);
+        Team cubs = appContext.getBean("cubs", Team.class);
 
-        System.out.println(game1);
+        game.setAwayTeam(cubs);
+        game.setHomeTeam(royals);
+        System.out.println(game.playGame());
 
+        game.setAwayTeam(redSox);
+        game.setHomeTeam(cubs);
+        System.out.println(game.playGame());
     }
 }

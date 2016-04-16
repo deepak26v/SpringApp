@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by deepakvalechha on 3/13/16.
  */
-@Component
+//@Component
 public class Royals implements Team {
     public String getName() {
         return "Kansas City Royals";
